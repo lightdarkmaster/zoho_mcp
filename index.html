@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoho MCP: make your business apps agent-ready</title>
+<meta name="description" content="Zoho MCP turns Zoho apps and 500+ third-party tools into agent-ready systems that any LLM can use through the Model Context Protocol.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M18 5 8 18h7l-1 9 10-13h-7z' fill='%231a0b2e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.3L4 20a1 1 0 0 0 .9 1.5h14.2A1 1 0 0 0 20 20l-6-10.7V2M8.5 2h7"/></symbol>
+<symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1M16 3h1a2 2 0 0 1 2 2v5a2 2 0 0 0 2 2 2 2 0 0 0-2 2v5a2 2 0 0 1-2 2h-1"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="m21 8-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol>
+<symbol id="i-mega" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM16 8a5 5 0 0 1 0 8"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14v-2a9 9 0 0 1 18 0v2M3 14h3v5H4a1 1 0 0 1-1-1zM21 14h-3v5h2a1 1 0 0 0 1-1z"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2zM9 8h6M9 12h6"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/><circle cx="9" cy="7" r="4"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5H3v8h4M14 21c3 0 7-1 7-8V5h-7v8h4"/></symbol>
+</defs></svg>
+<div class="progress" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="nav glass">
+  <a class="logo" href="#top">Zoho MCP</a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  <nav id="menu">
+    <a href="#why">Why MCP</a>
+    <a href="#prompts">Prompts</a>
+    <a href="#integrations">Integrations</a>
+    <a href="#developers">Developers</a>
+    <a href="#how">How it works</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-sm" href="https://www.zoho.com/mcp/signup.html">Sign up free</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <h1>Apps weren’t built for AI agents. Now they can be.</h1>
+      <p class="lead">Zoho MCP connects LLMs like GPT and Claude to Zoho’s APIs, data models and actions, so an agent can turn a plain instruction into real work across your business apps.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://www.zoho.com/mcp/signup.html">Sign up for free</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-art"><span class="float-tile t1" aria-hidden="true"><svg class="ic"><use href="#i-users"/></svg></span><span class="float-tile t2" aria-hidden="true"><svg class="ic"><use href="#i-headset"/></svg></span><span class="float-tile t3" aria-hidden="true"><svg class="ic"><use href="#i-receipt"/></svg></span><span class="float-tile t4" aria-hidden="true"><svg class="ic"><use href="#i-mail"/></svg></span>
+    <div class="prompt-card glass" aria-live="polite">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="prompt-label" id="demoModule">Sales</p>
+      <p class="typed"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+      <p class="result" id="demoResult">Auto-update deals, trigger follow-ups, and log meetings.</p>
+    </div>
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="flowH">
+    <h2 id="flowH">One agent, every app</h2>
+    <p class="sub">Any MCP-compatible agent connects to Zoho MCP, which exposes your apps’ tools and data in one standard way.</p>
+    <div class="flow">
+      <div class="flow-col"><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-chat"/></svg></span><span>Claude</span></div><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-cpu"/></svg></span><span>GPT</span></div><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-plug"/></svg></span><span>Any MCP client</span></div></div>
+      <span class="wire" aria-hidden="true"></span>
+      <div class="hub" aria-label="Zoho MCP"><span>Zoho<br>MCP</span></div>
+      <span class="wire" aria-hidden="true"></span>
+      <div class="flow-col"><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-users"/></svg></span><span>Zoho CRM</span></div><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-headset"/></svg></span><span>Zoho Desk</span></div><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-receipt"/></svg></span><span>Zoho Books</span></div><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-mail"/></svg></span><span>Zoho Mail</span></div><div class="node glass"><span class="badge"><svg class="ic"><use href="#i-layers"/></svg></span><span>500+ more apps</span></div></div>
+    </div>
+  </section>
+
+  <section id="why" class="wrap section">
+    <h2>Work moves from tabs to agents</h2>
+    <p class="sub">Business apps have always made people click, type, toggle and chase. Zoho MCP lets agents handle that part.</p>
+    <div class="grid two">
+      <article class="card glass">
+        <span class="badge"><svg class="ic"><use href="#i-x"/></svg></span><h3>The old way</h3>
+        <ul class="ticks no"><li>Manual clicks</li><li>Forms, menus and tabs</li><li>Apps demand that you adapt to them</li></ul>
+      </article>
+      <article class="card glass accent">
+        <span class="badge"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>The Zoho MCP way</h3>
+        <ul class="ticks"><li>Natural language prompts</li><li>Multi-app execution through a single agent</li><li>API-native, agent-driven workflows</li></ul>
+      </article>
+    </div>
+    <article class="card glass wide">
+      <span class="badge"><svg class="ic"><use href="#i-moon"/></svg></span><h3>Autonomous by design</h3>
+      <p>Zoho MCP isn’t only for chat. Autonomous agents can monitor, reason and act without a prompt. Whether the instruction comes from a person or from the agent itself, MCP translates intent into action across your Zoho apps.</p>
+      <div class="chips"><span>Escalate unresolved support tickets overnight</span><span>Monitor deal progress and reassign accounts</span><span>Launch reports or alerts when anomalies appear</span></div>
+    </article>
+  </section>
+
+  <section id="prompts" class="wrap section">
+    <h2>Try real-world prompts</h2>
+    <p class="sub">Sample prompts you can run in the playground.</p>
+    <div class="tabs" role="tablist" aria-label="Prompt examples">
+      <button role="tab" aria-selected="true" aria-controls="p-sales" id="t-sales"><svg class="ic"><use href="#i-trend"/></svg>Sales</button>
+      <button role="tab" aria-selected="false" aria-controls="p-marketing" id="t-marketing" tabindex="-1"><svg class="ic"><use href="#i-mega"/></svg>Marketing</button>
+      <button role="tab" aria-selected="false" aria-controls="p-support" id="t-support" tabindex="-1"><svg class="ic"><use href="#i-headset"/></svg>Support</button>
+      <button role="tab" aria-selected="false" aria-controls="p-finance" id="t-finance" tabindex="-1"><svg class="ic"><use href="#i-receipt"/></svg>Finance</button>
+    </div>
+    <div class="tab-panels glass">
+      <div role="tabpanel" id="p-sales" aria-labelledby="t-sales"><blockquote>Mark the Zylker deal as won and schedule a call with John for an onboarding meeting</blockquote><p>Auto-update deals, trigger follow-ups, and log meetings.</p></div>
+      <div role="tabpanel" id="p-marketing" aria-labelledby="t-marketing" hidden><blockquote>Schedule a campaign called ‘Summer Sale Blast’ for next Tuesday at 11 AM and target all leads from Bangalore.</blockquote><p>Generate campaign reports, launch workflows, and optimize content.</p></div>
+      <div role="tabpanel" id="p-support" aria-labelledby="t-support" hidden><blockquote>Search the desk for any open tickets. Mark them as in progress and send a reply that we are working on it and will update by end of the day</blockquote><p>Escalate tickets, summarize threads, and auto-assign queries.</p></div>
+      <div role="tabpanel" id="p-finance" aria-labelledby="t-finance" hidden><blockquote>Generate an invoice for Naveen Kumar from ABC Corp for ₹1200 on consulting services</blockquote><p>Generate invoices, track payments, log expenses, and create financial reports.</p></div>
+    </div>
+  </section>
+
+  <section id="integrations" class="wrap section">
+    <h2><span data-count="500">500</span>+ integrations at your fingertips</h2>
+    <p class="sub">Across Zoho, Asana, Twilio and beyond. A few of them:</p>
+    <div class="chips big">
+      <span>Zoho CRM</span><span>Zoho Desk</span><span>Zoho Books</span><span>Zoho Mail</span><span>Zoho Cliq</span><span>Zoho People</span><span>Zoho Expense</span><span>Zoho Creator</span><span>Zoho Billing</span><span>Zoho Survey</span><span>Bigin</span><span>Notion</span><span>GitHub</span><span>GitLab</span><span>Stripe</span><span>Twilio</span><span>Mailchimp</span><span>Outlook</span><span>OneDrive</span><span>PagerDuty</span><span>Basecamp</span><span>ActiveCampaign</span><span>Freshsales</span><span>Microsoft To-Do</span>
+    </div>
+    <p class="note">Missing a tool? Request it at <a href="mailto:support@zohomcp.com">support@zohomcp.com</a>.</p>
+  </section>
+
+  <section id="developers" class="wrap section">
+    <h2>Made for developers. Loved by agents.</h2>
+    <p class="sub">MCP standardizes how AI agents interact with Zoho applications and third-party services.</p>
+    <div class="grid three">
+      <article class="card glass"><span class="badge"><svg class="ic"><use href="#i-cpu"/></svg></span><h3>Works with all LLMs</h3><p>Compatible with Claude, GPT and other agents out of the box.</p></article>
+      <article class="card glass"><span class="badge"><svg class="ic"><use href="#i-flask"/></svg></span><h3>Built-in playground</h3><p>Test your integrations without writing code.</p></article>
+      <article class="card glass"><span class="badge"><svg class="ic"><use href="#i-braces"/></svg></span><h3>Schema-first design</h3><p>Self-describing APIs with clear input and output contracts.</p></article>
+      <article class="card glass"><span class="badge"><svg class="ic"><use href="#i-grid"/></svg></span><h3>Unified interface</h3><p>Consistent patterns across all Zoho applications.</p></article>
+      <article class="card glass"><span class="badge"><svg class="ic"><use href="#i-box"/></svg></span><h3>Drop-in compatible</h3><p>Works immediately with agent frameworks and tools.</p></article>
+      <article class="card glass"><span class="badge"><svg class="ic"><use href="#i-shield"/></svg></span><h3>Secure, permission-scoped</h3><p>OAuth-based authorization keeps access under control.</p></article>
+    </div>
+  </section>
+
+  <section id="how" class="wrap section">
+    <h2>How it works</h2>
+    <p class="sub">One request, four steps. Select a step to see the payload.</p>
+    <div class="stepper">
+      <ol class="steps" id="steps"></ol>
+      <div class="glass code-card">
+        <p class="code-title" id="stepDesc"></p>
+        <pre><code id="stepCode"></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2>What users say</h2>
+    <div class="grid three">
+      <figure class="card glass"><svg class="ic quote" aria-hidden="true"><use href="#i-quote"/></svg><blockquote>Connected Books, CRM and Creator to Claude for a CA practice. Month-end closures, lead follow-ups and invoice tracking dropped from hours to minutes.</blockquote><figcaption><img class="av" src="https://www.zohowebstatic.com/sites/zweb/images/mcp/bhavik-bhanushali-customer-img.png" alt="CA Bhavik Bhanushali" width="44" height="44" loading="lazy" referrerpolicy="no-referrer"><span><b>CA Bhavik Bhanushali</b><br>Founder &amp; CEO, Bhanushali &amp; Bhanushali</span></figcaption></figure>
+      <figure class="card glass"><svg class="ic quote" aria-hidden="true"><use href="#i-quote"/></svg><blockquote>Used across several Bigin CRM and Books instances to run sales reviews and analyze dealer performance through conversation instead of static dashboards.</blockquote><figcaption><span class="av">HD</span><span><b>Hardik Dedhia</b><br>Co-founder &amp; CTO, AllHome.in</span></figcaption></figure>
+      <figure class="card glass"><svg class="ic quote" aria-hidden="true"><use href="#i-quote"/></svg><blockquote>With Cursor and Zoho Books, the team onboarded 100+ Zoho Expense users in about two minutes.</blockquote><figcaption><img class="av" src="https://www.zohowebstatic.com/sites/zweb/images/mcp/pulkit-om-gupta-img.png" alt="Pulkit Om Gupta" width="44" height="44" loading="lazy" referrerpolicy="no-referrer"><span><b>Pulkit Om Gupta</b><br>Founder, USHMA</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap section narrow">
+    <h2>Frequently asked questions</h2>
+    <details class="glass" open><summary>What is Zoho MCP?</summary><p>Zoho MCP is a product built on the Model Context Protocol, a standard interface that lets AI agents work with business software. You create MCP servers that expose tools, actions and context from Zoho apps. MCP is the protocol; Zoho MCP provides the infrastructure, configuration UI, security and integrations.</p></details>
+    <details class="glass"><summary>How is it different from chatbot builders or automation tools?</summary><p>It is the execution layer. Chatbot builders focus on conversation flow and automation tools run predefined rules. Zoho MCP exposes your apps’ data and actions so agents can coordinate multi-step work without rigid scripts.</p></details>
+    <details class="glass"><summary>Are AI agents and Zoho MCP the same thing?</summary><p>No. The agent, powered by an LLM, interprets intent. MCP supplies the interface: which actions exist, how they work and what is allowed. It doesn’t make agents smarter, it makes them more capable of acting.</p></details>
+    <details class="glass"><summary>Do I need coding experience?</summary><p>No. You can configure MCP servers, define tools and manage authentication through the UI with minimal code.</p></details>
+    <details class="glass"><summary>Which models are supported?</summary><p>Zoho MCP is model-agnostic. GPT, Claude, fine-tuned or open-source models all work, as long as the agent speaks MCP through an MCP client.</p></details>
+    <details class="glass"><summary>Is it secure?</summary><p>Access follows Zoho’s security protocols: access controls, encrypted data handling and audit trails. Agents run with user-level permissions, and Zoho supports OAuth for identity management.</p></details>
+    <details class="glass"><summary>Which apps does it work with?</summary><p>Many Zoho apps, including CRM, Mail, Calendar, Desk, Cliq, Projects and WorkDrive, plus 500+ third-party apps such as Asana, Twilio, OneDrive and Notion.</p></details>
+  </section>
+
+  <section class="wrap section">
+    <div class="final glass">
+      <h2>Build agent-ready workflows across Zoho and third-party services</h2>
+      <a class="btn" href="https://www.zoho.com/mcp/signup.html">Sign up for free</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-card glass">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="logo" href="#top">Zoho MCP</a>
+          <p>Turn Zoho apps and 500+ third-party tools into agent-ready systems that any LLM can use through the Model Context Protocol.</p>
+          <ul class="trust">
+            <li><svg class="ic"><use href="#i-cpu"/></svg>Model-agnostic</li>
+            <li><svg class="ic"><use href="#i-shield"/></svg>OAuth, user-level permissions</li>
+            <li><svg class="ic"><use href="#i-plug"/></svg>500+ integrations</li>
+          </ul>
+          <a class="btn btn-sm" href="https://www.zoho.com/mcp/signup.html">Sign up free</a>
+        </div>
+        <nav aria-label="Product"><h4>Product</h4>
+          <a href="#why">Why MCP</a><a href="#prompts">Sample prompts</a><a href="#integrations">Integrations</a><a href="#developers">For developers</a><a href="#how">How it works</a></nav>
+        <nav aria-label="Use cases"><h4>Use cases</h4>
+          <a href="#prompts">Sales</a><a href="#prompts">Marketing</a><a href="#prompts">Support</a><a href="#prompts">Finance</a><a href="#why">Autonomous agents</a></nav>
+        <nav aria-label="Resources"><h4>Resources</h4>
+          <a href="https://www.zoho.com/mcp/">Zoho MCP home</a><a href="https://www.zoho.com/mcp/signup.html">Create an account</a><a href="https://modelcontextprotocol.io">About the protocol</a><a href="#faq">FAQ</a><a href="mailto:support@zohomcp.com">support@zohomcp.com</a></nav>
+        <nav aria-label="Zoho apps"><h4>Zoho apps</h4>
+          <a href="https://www.zoho.com/crm/">Zoho CRM</a><a href="https://www.zoho.com/desk/">Zoho Desk</a><a href="https://www.zoho.com/books/">Zoho Books</a><a href="https://www.zoho.com/mail/">Zoho Mail</a><a href="https://www.zoho.com/cliq/">Zoho Cliq</a></nav>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2026 Unofficial overview built from <a href="https://www.zoho.com/mcp/">zoho.com/mcp</a>. Zoho and all product names and logos are trademarks of their respective owners. Brand icons by <a href="https://simpleicons.org">Simple Icons</a>.</p>
+        <a class="up" href="#top">Back to top <svg class="ic"><use href="#i-trend"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="to-top" aria-label="Back to top" hidden>↑</button>
+<script src="./js/script.js"></script>
+</body>
+</html>
