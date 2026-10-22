@@ -1,5 +1,88 @@
 (() => {
   'use strict';
+
+  /* ============================================================
+     ZOHO SERVICE LOGOS: EDIT HERE
+     Paste a logo URL or a local path between the quotes, e.g.
+       'CRM': 'https://example.com/crm.svg',
+       'Desk': 'logos/desk.png',      (file inside a logos/ folder)
+     Leave '' to use the automatic guess; if that image also fails,
+     a tile with the service's initials is shown instead.
+     ============================================================ */
+  const LOGO_URLS = {
+    'CRM': 'https://www.logoshape.com/zoho-products-logo',
+    'Workdrive': 'https://zapier.com/apps/zoho-workdrive/integrations',
+    'Cliq': 'https://www.capterra.com/p/167639/Zoho-Cliq/',
+    'Qntrl': '',
+    'Projects': '',
+    'Mail': '',
+    'Bigin': '',
+    'Desk': '',
+    'Books': '',
+    'Billing': '',
+    'Inventory': '',
+    'Invoice': '',
+    'Expense': '',
+    'Payroll': '',
+    'Sdp On Demand': '',
+    'Apptics': '',
+    'Notebook': '',
+    'Endpoint Central': '',
+    'Dataprep': '',
+    'MDM': '',
+    'Calendar': '',
+    'Creator': '',
+    'Site24x7': '',
+    'Sprints': '',
+    'Commerce': '',
+    'CloudSpend': '',
+    'Learn': '',
+    'Analytics': '',
+    'Assist': '',
+    'Lens': '',
+    'Bookings': '',
+    'Recruit': '',
+    'Writer': '',
+    'Verticals': '',
+    'Payments': '',
+    'Catalyst': '',
+    'Social': '',
+    'Log360 Cloud': '',
+    'Survey': '',
+    'People': '',
+    'SalesIQ': '',
+    'POS': '',
+    'Sheet': '',
+    'Site24x7 Tools': '',
+    'Backstage': '',
+    'Sign': '',
+    'IOT': '',
+    'One': '',
+    'Directory': '',
+    'Vani': '',
+    'ERP': '',
+    'Procurement': '',
+    'Meeting': '',
+    'Webinar': '',
+    'Tables': '',
+    'Connect': '',
+    'Command Center': '',
+    'Show': '',
+    'PageSense': '',
+    'Office Integrator': '',
+    'Analytics Plus': '',
+    'Quartz': '',
+    'Sites': '',
+    'Forms': '',
+    'CommunitySpaces': '',
+    'Solo': '',
+    'Arattai Business': 'https://seeklogo.com/free-vector-logos/zoho',
+    'Vertical Studio': '',
+    'TrainerCentral': '',
+    'Voice': '',
+    'Campaigns': 'https://imgs.search.brave.com/MQeeC_2GKinvLQVsAijGQpGToPPPwCEEIqhS3Ci2oqg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/LXB1YmxpYy5uaW1i/dXNwb3AuY29tL2Zs/b3ctYXBwcy96b2hv/X2NhbXBhaWducy5w/bmc',
+  };
+
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -108,7 +191,7 @@
   topBtn.addEventListener('click', () => scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
 
   /* Staggered scroll reveal */
-  const groups = ['.section > h2', '.section > .sub', '.grid', '.flow', '.card.wide', '.tabs', '.tab-panels', '.marquee', '.chips.big', '.note', '.stepper', 'details', '.final'];
+  const groups = ['.section > h2', '.section > .sub', '.grid', '.flow', '.card.wide', '.tabs', '.tab-panels', '.marquee', '.chips.big', '.svc-head', '.svc-grid', '.note', '.stepper', 'details', '.final'];
   const revealEls = [];
   groups.forEach(sel => $$(sel).forEach(el => {
     const kids = el.classList.contains('grid') ? [...el.children] : [el];
@@ -185,6 +268,26 @@
     };
     img.addEventListener('error', fallback);
     if (img.complete && !img.naturalWidth) fallback();
+  });
+
+
+  /* ===== v5: Zoho services grid (names from zoho.com/mcp/services/zoho-services.html) ===== */
+  const services = ['CRM','Workdrive','Cliq','Qntrl','Projects','Mail','Bigin','Desk','Books','Billing','Inventory','Invoice','Expense','Payroll','Sdp On Demand','Apptics','Notebook','Endpoint Central','Dataprep','MDM','Calendar','Creator','Site24x7','Sprints','Commerce','CloudSpend','Learn','Analytics','Assist','Lens','Bookings','Recruit','Writer','Verticals','Payments','Catalyst','Social','Log360 Cloud','Survey','People','SalesIQ','POS','Sheet','Site24x7 Tools','Backstage','Sign','IOT','One','Directory','Vani','ERP','Procurement','Meeting','Webinar','Tables','Connect','Command Center','Show','PageSense','Office Integrator','Analytics Plus','Quartz','Sites','Forms','CommunitySpaces','Solo','Arattai Business','Vertical Studio','TrainerCentral'];
+  const upcoming = ['Voice','Campaigns'];
+  const grid = $('#svcGrid');
+  const LOGO = 'https://www.zohowebstatic.com/sites/zweb/images/productlogos/';
+  const tileFor = (n, soon) => {
+    const full = 'Zoho ' + n, slug = n.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const a = document.createElement('div'); a.className = 'svc glass'; a.dataset.q = full.toLowerCase();
+    a.innerHTML = `<i class="logo brand" data-name="${full}" aria-hidden="true"><img src="${LOGO_URLS[n] || LOGO + slug + '.svg'}" alt="" width="24" height="24" loading="lazy" referrerpolicy="no-referrer"></i><span>${full}</span>${soon ? '<em>Soon</em>' : ''}`;
+    return a;
+  };
+  services.forEach(n => grid.append(tileFor(n)));
+  upcoming.forEach(n => grid.append(tileFor(n, true)));
+  $('#svcFilter').addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase(); let shown = 0;
+    $$('.svc', grid).forEach(t => { const m = t.dataset.q.includes(q); t.hidden = !m; shown += m; });
+    $('#svcEmpty').hidden = shown > 0;
   });
 
   /* Integrations: two-row marquee */
